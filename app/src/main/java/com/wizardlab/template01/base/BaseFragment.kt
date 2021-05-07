@@ -26,4 +26,22 @@ abstract class BaseFragment<in V : BaseView, T : BasePresenter<V>> :
 
         presenter.attachView(this as V)
     }
+
+    open fun getBaseActivity(): BaseActivity<V, T>? {
+        var baseActivity: BaseActivity<V, T>? = null
+        if (activity != null && activity is BaseActivity<*, *>) {
+            baseActivity = activity as BaseActivity<V, T>?
+        }
+        return baseActivity
+    }
+
+    override fun onResume() {
+        super.onResume()
+        presenter.onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        presenter.onPause()
+    }
 }

@@ -2,6 +2,7 @@ package com.wizardlab.template01.base
 
 import android.content.Context
 import androidx.annotation.StringRes
+import com.wizardlab.template01.databinding.ActivityBaseBinding
 
 /**
  * Template01
@@ -16,7 +17,7 @@ interface BaseView {
 
     fun initLayout()
 
-//    fun setupActionBar(baseBinding: ActivityBaseBinding)
+    fun setupActionBar(baseBinding: ActivityBaseBinding)
 
     fun showErrorToast(error: String?)
 
