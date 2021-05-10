@@ -26,6 +26,7 @@ open class BasePresenterImpl<V : BaseView> :
     }
 
     override fun detachView() {
-
+        view?.stopProgress()
+        view = null
     }
 }

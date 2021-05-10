@@ -18,8 +18,8 @@ import com.zeugmasolutions.localehelper.LocaleAwareCompatActivity
  *
  * Description:
  */
-abstract class BaseActivity<in V : BaseView, T : BasePresenter<V>> :
-    LocaleAwareCompatActivity(), BaseView {
+abstract class BaseActivity<in V : BaseView, T : BasePresenter<V>>
+    : LocaleAwareCompatActivity(), BaseView {
 
 //    private lateinit var mApplication: MApplication
     private lateinit var baseBinding: ActivityBaseBinding
@@ -55,5 +55,75 @@ abstract class BaseActivity<in V : BaseView, T : BasePresenter<V>> :
         }
 
         setupActionBar(baseBinding)
+    }
+
+    override fun setupActionBar(baseBinding: ActivityBaseBinding) {
+        TODO("Not yet implemented")
+    }
+
+    override fun showErrorToast(error: String?) {
+        TODO("Not yet implemented")
+    }
+
+    override fun showErrorToast(stringResId: Int) {
+        TODO("Not yet implemented")
+    }
+
+    override fun showToastMessage(srtResId: Int) {
+        TODO("Not yet implemented")
+    }
+
+    override fun showToastMessage(message: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun showErrorDialog(strResId: Int) {
+        TODO("Not yet implemented")
+    }
+
+    override fun showErrorDialog(title: Int, message: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun showErrorDialog(title: Int, message: Int) {
+        TODO("Not yet implemented")
+    }
+
+    override fun showErrorDialog(title: String, message: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun showErrorDialog(message: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun showSnackBar(message: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun showSnackBar(srtResId: Int) {
+        TODO("Not yet implemented")
+    }
+
+    override fun startProgress() {
+        TODO("Not yet implemented")
+    }
+
+    override fun startCircleProgress() {
+        TODO("Not yet implemented")
+    }
+
+    override fun stopProgress() {
+        TODO("Not yet implemented")
+    }
+
+    override fun stopCircleProgress() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onDestroy() {
+        presenter.detachView()
+
+        super.onDestroy()
     }
 }
