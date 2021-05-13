@@ -51,4 +51,7 @@ dependencies {
 
     //다국어 Library
     implementation 'com.zeugmasolutions.localehelper:locale-helper-android:1.1.4'
+
+    //Rx BLE
+    implementation "com.polidea.rxandroidble2:rxandroidble:1.11.1"
 }

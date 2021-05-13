@@ -3,7 +3,6 @@ package com.wizardlab.template01.flow.main
 import androidx.databinding.DataBindingUtil
 import com.wizardlab.template01.R
 import com.wizardlab.template01.base.BaseActivity
-import com.wizardlab.template01.databinding.ActivityBaseBinding
 import com.wizardlab.template01.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity<MainContract.View,
