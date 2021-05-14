@@ -26,19 +26,21 @@ class MainActivity : BaseActivity<MainContract.View,
         binding.presenter = presenter
 
         super.initLayout(binding.root)
+
     }
 
     override fun setupActionBar(baseBinding: ActivityBaseBinding) {
         baseBinding.layoutAppbar.visibility = View.VISIBLE
-        baseBinding.tvTitle.visibility = View.VISIBLE
-        baseBinding.tvTitle.text = getString(R.string.title_mainActivity)
+        baseBinding.ivTitle.visibility = View.VISIBLE
+        baseBinding.viewLine.visibility = View.VISIBLE
+        baseBinding.ivLeft.visibility = View.VISIBLE
+        baseBinding.ivLeft.setOnClickListener { onBackPressed() }
+        baseBinding.ivRight.visibility = View.VISIBLE
     }
 
     override fun onBackPressed() {
         super.onBackPressed()
-        moveTaskToBack(true)
-        finish()
-        android.os.Process.killProcess(android.os.Process.myPid())
+        finishApp()
     }
 
     override fun onDestroy() {

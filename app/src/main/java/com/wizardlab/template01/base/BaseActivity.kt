@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatDialog
 import androidx.databinding.DataBindingUtil
 import com.wizardlab.template01.R
 import com.wizardlab.template01.databinding.ActivityBaseBinding
+import com.wizardlab.template01.databinding.ActivitySideMenuBinding
 import com.zeugmasolutions.localehelper.LocaleAwareCompatActivity
 
 
@@ -23,6 +24,7 @@ abstract class BaseActivity<in V : BaseView, T : BasePresenter<V>>
 
 //    private lateinit var mApplication: MApplication
     private lateinit var baseBinding: ActivityBaseBinding
+    private lateinit var sideMenuBinding: ActivitySideMenuBinding
     private var progressDialog: AppCompatDialog? = null
     override fun getContext(): Context = this
     protected abstract var presenter: T
@@ -55,6 +57,10 @@ abstract class BaseActivity<in V : BaseView, T : BasePresenter<V>>
         }
 
         setupActionBar(baseBinding)
+
+        sideMenuBinding = DataBindingUtil.setContentView(this, R.layout.activity_side_menu)
+        sideMenuBinding.layoutDrawer.outlineProvider = null
+
     }
 
     override fun setupActionBar(baseBinding: ActivityBaseBinding) {
@@ -119,6 +125,23 @@ abstract class BaseActivity<in V : BaseView, T : BasePresenter<V>>
 
     override fun stopCircleProgress() {
         TODO("Not yet implemented")
+    }
+
+    override fun finishAppRemoveTask() {
+        moveTaskToBack(true)
+        finishAndRemoveTask()
+        android.os.Process.killProcess(android.os.Process.myPid())
+    }
+
+    override fun finishApp() {
+        moveTaskToBack(true)
+        finish()
+        android.os.Process.killProcess(android.os.Process.myPid())
+    }
+
+    override fun finishActivity() {
+        moveTaskToBack(true)
+        finishAndRemoveTask()
     }
 
     override fun onDestroy() {

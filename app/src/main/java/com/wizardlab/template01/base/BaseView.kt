@@ -48,4 +48,10 @@ interface BaseView {
     fun stopProgress()
 
     fun stopCircleProgress()
+
+    fun finishAppRemoveTask()
+
+    fun finishApp()
+
+    fun finishActivity()
 }

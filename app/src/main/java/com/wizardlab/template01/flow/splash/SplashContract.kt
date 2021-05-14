@@ -15,7 +15,6 @@ object SplashContract {
     interface View : BaseView {
         fun versionOk()
         fun permissionOk()
-
     }
 
     interface Presenter : BasePresenter<View> {
