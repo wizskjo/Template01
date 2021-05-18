@@ -57,10 +57,6 @@ abstract class BaseActivity<in V : BaseView, T : BasePresenter<V>>
         }
 
         setupActionBar(baseBinding)
-
-        sideMenuBinding = DataBindingUtil.setContentView(this, R.layout.activity_side_menu)
-        sideMenuBinding.layoutDrawer.outlineProvider = null
-
     }
 
     override fun setupActionBar(baseBinding: ActivityBaseBinding) {

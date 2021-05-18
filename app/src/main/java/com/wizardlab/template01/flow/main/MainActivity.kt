@@ -2,8 +2,10 @@ package com.wizardlab.template01.flow.main
 
 import android.content.Context
 import android.content.Intent
+import android.view.Gravity
 import android.view.View
 import androidx.databinding.DataBindingUtil
+import androidx.drawerlayout.widget.DrawerLayout
 import com.wizardlab.template01.R
 import com.wizardlab.template01.base.BaseActivity
 import com.wizardlab.template01.databinding.ActivityBaseBinding
@@ -27,6 +29,14 @@ class MainActivity : BaseActivity<MainContract.View,
 
         super.initLayout(binding.root)
 
+        binding.tvExample.setOnClickListener {
+            if(binding.viewCompanyLogo.visibility == View.GONE) {
+                binding.viewCompanyLogo.visibility = View.VISIBLE
+            } else {
+                binding.viewCompanyLogo.visibility = View.GONE
+            }
+        }
+
     }
 
     override fun setupActionBar(baseBinding: ActivityBaseBinding) {
@@ -36,6 +46,13 @@ class MainActivity : BaseActivity<MainContract.View,
         baseBinding.ivLeft.visibility = View.VISIBLE
         baseBinding.ivLeft.setOnClickListener { onBackPressed() }
         baseBinding.ivRight.visibility = View.VISIBLE
+        baseBinding.ivRight.setOnClickListener {
+            if(!baseBinding.layoutDrawer.isDrawerOpen(Gravity.LEFT)) {
+                baseBinding.layoutDrawer.openDrawer(Gravity.LEFT)
+            } else {
+                baseBinding.layoutDrawer.closeDrawer(Gravity.LEFT)
+            }
+        }
     }
 
     override fun onBackPressed() {
